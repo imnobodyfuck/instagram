@@ -22,6 +22,7 @@
   .footer-links {
     flex-wrap: nowrap;
     justify-content: flex-start;
+    align-items: center;
   }
 
   .footer-links li {
